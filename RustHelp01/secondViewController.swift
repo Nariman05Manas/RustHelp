@@ -5,18 +5,18 @@
 //  Created by qwerty on 10.04.2024.
 //
 
-import UIKit
+/* import UIKit
 
 class SecondVC: UIViewController {
     
     
-    private let array = Array.init(repeating: "AAA", count: 100)
+    private let array = Array.init(repeating: "AAA", count: 3)
     
     private lazy var layaout: UICollectionViewFlowLayout = {
         let layaout = UICollectionViewFlowLayout()
-        layaout.minimumInteritemSpacing = 5
-        layaout.minimumLineSpacing = 12
-        layaout.scrollDirection = .vertical
+        layaout.minimumInteritemSpacing = 12
+        layaout.minimumLineSpacing = 5
+        layaout.scrollDirection = .horizontal
         return layaout
         
     }()
@@ -78,7 +78,7 @@ extension SecondVC: UICollectionViewDataSource{
             super.init(frame: .zero)
             setup()
             contentView.backgroundColor = .black
-            contentView.layer.cornerRadius = 10
+            contentView.layer.cornerRadius = 5
         }
         
         required init?(coder: NSCoder) {
@@ -97,4 +97,48 @@ extension SecondVC: UICollectionViewDataSource{
             lable.text  = text
         }
     }
+*/
 
+import UIKit
+
+class secondViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Создаем view для размещения кнопок
+        let containerView = UIView()
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(containerView)
+        
+        // Устанавливаем constraints для размещения containerView по центру экрана
+        NSLayoutConstraint.activate([
+            containerView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            containerView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+        ])
+        
+        // Создаем и добавляем кнопки с изображениями
+        let imageNames = ["image1", "image2", "image3", "image4"] // Названия изображений
+        let buttonSize: CGFloat = 136
+        let spacing: CGFloat = 20
+        
+        for (index, imageName) in imageNames.enumerated() {
+            let button = UIButton(type: .custom)
+            button.translatesAutoresizingMaskIntoConstraints = false
+            button.setImage(UIImage(named: imageName), for: .normal)
+            containerView.addSubview(button)
+            
+            // Рассчитываем позицию кнопки
+            let xPosition = (buttonSize + spacing) * CGFloat(index % 2)
+            let yPosition = (buttonSize + spacing) * CGFloat(index / 2)
+            
+            // Устанавливаем constraints для размещения кнопок в containerView
+            NSLayoutConstraint.activate([
+                button.widthAnchor.constraint(equalToConstant: buttonSize),
+                button.heightAnchor.constraint(equalToConstant: buttonSize),
+                button.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: xPosition),
+                button.topAnchor.constraint(equalTo: containerView.topAnchor, constant: yPosition)
+            ])
+        }
+    }
+}

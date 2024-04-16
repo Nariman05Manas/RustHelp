@@ -16,7 +16,7 @@ class CellView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = .orange
+        self.backgroundColor = .cyan
         
         separatorView.backgroundColor = .white
         

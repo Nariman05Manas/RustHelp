@@ -20,7 +20,7 @@ class FirstViewController: UIViewController {
     }
     
     @objc func tap() {
-        let wallVC = ButtonViewController() // Instantiate the WallViewController
+        let wallVC = ReidViewController() // Instantiate the WallViewController
         self.present(wallVC, animated: true, completion: nil) // Present the WallViewController
     }
 }

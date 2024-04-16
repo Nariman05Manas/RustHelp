@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LifeHackVC: UIViewController {
+class InfoViewController: UIViewController {
     
     private let scrollView = UIScrollView()
     
@@ -24,7 +24,7 @@ class LifeHackVC: UIViewController {
         // MARK: - Private
         
             func configureScrollView() {
-            scrollView.backgroundColor = .purple
+            scrollView.backgroundColor = .green
             scrollView.frame = self.view.frame
             scrollView.contentSize = CGSize(width: self.view.frame.width, height: CGFloat(countOfCell * heightCell + 80))
             

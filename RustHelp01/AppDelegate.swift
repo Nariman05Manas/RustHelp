@@ -21,20 +21,27 @@ var window: UIWindow?
         
         let firstVC = FirstViewController()
         firstVC.view.backgroundColor = .darkGray
-        firstVC.tabBarItem = UITabBarItem(title: "РЕЙД", image: .checkmark, tag: 0)
+        firstVC.tabBarItem = UITabBarItem(title: "Reid", image: .checkmark, tag: 0)
         
-        let lifeHackViewController = LifeHackVC()
-        lifeHackViewController.tabBarItem = UITabBarItem(title: "Лайфхаки", image: .add, tag: 0)
-        
-        let secondVC = SecondVC()
+        let furnanceVC = FurnanceViewController()
         //secondVC.view.backgroundColor = .brown
-        secondVC.tabBarItem = UITabBarItem(title: "ИНФОРМАЦИЯ", image: .actions,tag: 1)
+        furnanceVC.tabBarItem = UITabBarItem(title: "Furnance", image: .actions,tag: 1)
+        
+        
+        let infoVC = InfoViewController()
+        infoVC.tabBarItem = UITabBarItem(title: "Info", image: .add, tag: 0)
+        
+        
+        
+        let settingVC = SettingViewController()
+        settingVC.tabBarItem = UITabBarItem(title: "Setting", image: .add, tag: 0)
+        
         
         //навигейшн бар
         let firstNavigationBarVC = UINavigationController(rootViewController: firstVC)
         
         
-        tabBarController.viewControllers = [firstNavigationBarVC,secondVC,lifeHackViewController]
+        tabBarController.viewControllers = [firstNavigationBarVC,furnanceVC,infoVC,settingVC]
         
         window.rootViewController = tabBarController
         
@@ -43,4 +50,3 @@ var window: UIWindow?
     }
 
 }
-
